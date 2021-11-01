@@ -32,8 +32,8 @@ namespace attrs = boost::log::attributes;
 namespace keywords = boost::log::keywords;
 namespace didtree
 {
-
-  enum severity_level {
+  enum severity_level
+  {
     TRACE,
     DEBUG,
     INFO,
@@ -47,8 +47,12 @@ namespace didtree
   BOOST_LOG_ATTRIBUTE_KEYWORD(severity, "Severity", severity_level)
   BOOST_LOG_ATTRIBUTE_KEYWORD(tag_attr, "Tag", std::string)
 
-  std::ostream& operator<<(std::ostream& strm, severity_level level);
+
+  std::ostream &operator<<(std::ostream &strm, severity_level level);
+
   void InitBoostLog(severity_level logging_level, std::string module_name);
+
+  extern src::severity_logger<severity_level> lg;
 
 } // namespace didtree
 #endif //AUDIO_RECO_MODULES_COMMON_BOOSTLOGGING_H_
